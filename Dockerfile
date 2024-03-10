@@ -10,4 +10,10 @@ COPY go.sum ./
 RUN go mod tidy
 COPY . ./
 RUN go build -o /main
-CMD [ "/main" ]
+
+FROM node:18-slim
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install --only=production
+COPY . ./
+CMD [ "node", "index.js" ]
