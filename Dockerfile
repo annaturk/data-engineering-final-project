@@ -1,9 +1,3 @@
-FROM node:18-slim
-WORKDIR /usr/src/app
-COPY front-end/package*.json ./
-RUN npm install --only=production
-COPY . ./
-
 # syntax=docker/dockerfile:1
 FROM golang:1.17-alpine
 ENV PORT 8080
