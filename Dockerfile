@@ -1,3 +1,9 @@
+FROM node:18-slim
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install --only=production
+COPY . ./
+
 # syntax=docker/dockerfile:1
 FROM golang:1.17-alpine
 ENV PORT 8080
@@ -9,11 +15,6 @@ COPY go.mod ./
 COPY go.sum ./
 RUN go mod tidy
 COPY . ./
-RUN go build -o /main
 
-FROM node:18-slim
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install --only=production
-COPY . ./
-CMD [ "node", "index.js" ]
+RUN go build -o /main
+CMD [ "/main" ]
