@@ -23,4 +23,3 @@ steps:
 images:
 - gcr.io/macro-nuance-416801/go-microservice
 - gcr.io/macro-nuance-416801/pgadmin
-
