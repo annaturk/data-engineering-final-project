@@ -73,10 +73,10 @@ func main() {
 		log.Print("starting CBI Microservices ...")
 
 		go GetTaxiTrips(db)
-		go GetShareTrips(db)
+		// go GetShareTrips(db)
 		go GetCOVIDCases(db)
 		go GetCCVIData(db)
-		go GetBuildingPermits(db)
+		// go GetBuildingPermits(db)
 		go GetUnemploymentRates(db)
 		go GetNeighborhoodNames(db)
 
